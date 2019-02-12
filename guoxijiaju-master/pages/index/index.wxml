@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view>
+  <view style="display:flex;justify-content:center;">
+      <image style="height:380rpx;width:90%;position:relative;top:-17rpx" mode="aspectFit" src="../../images/nav/swiper1.jpeg"></image>
+  </view>
+  <block wx:if="{{userData.role == 'manage' || userData.role == 'staff'}}">
+    <form bindsubmit="bindSave">
+      <view class="form-box">
+        <view class="order-content">
+            <view class="label">订单信息</view>
+            <view class="label-right">
+                <textarea name="content" auto-height placeholder="订单信息"  value="{{orderData.content}}"/>
+            </view>
+        </view>
+        
+        <view class="row-wrap">
+          <view class="label">联系人</view>
+          <view class="label-right">
+              <input name="linkMan" class="input" type="text" placeholder="姓名" value="{{orderData.linkMan}}"/>
+          </view>
+        </view>
+
+        <view class="row-wrap">
+          <view class="label">手机号码</view>
+          <view class="label-right">
+              <input name="mobile" class="input" maxlength="11" type="number" placeholder="11位手机号码" value="{{orderData.mobile}}"/>
+            </view>
+        </view>
+
+        <view class="addr-details">
+            <view class="label">地址</view>
+            <view class="label-right">
+                <textarea name="address" auto-height placeholder="详细地址"  value="{{orderData.address}}"/>
+            </view>
+        </view>
+      </view>
+      <button type="warn" class="save-btn" formType="submit">提交</button>
+    </form>
+  </block>
+</view>
